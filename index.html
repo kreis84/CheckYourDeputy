@@ -28,7 +28,42 @@
 			</p>
 			<div class="back" ng-click='back()' ng-if='showParticularDeputy'><div class="arrow"></div>WRÓĆ</div>
 			<div class='particularDeputy' ng-if='showParticularDeputy' class="particularDeputy">
-				<h3>{{particularDeputy['poslowie.nazwa']}}</h3>
+				<h3>{{particularDeputy['poslowie.nazwa']}} <span>{{particularDeputy['sejm_kluby.nazwa']}}</span></h3>
+				<div class="partialData" ng-click='personalToggle = !personalToggle'> DANE PERSONALNE</div>
+				<div ng-show='personalToggle'>
+					<p>Data urodzenia:<span>{{particularDeputy['poslowie.data_urodzenia']}}</span></p>
+					<p>Miejsce urodzenia:<span>{{particularDeputy['poslowie.miejsce_urodzenia']}}</span></p>
+					<p>Miejsce zamieszkania:<span>{{particularDeputy['poslowie.miejsce_zamieszkania']}}</span></p>
+					<p>Zawód:<span>{{particularDeputy['poslowie.zawod']}}</span></p>
+				</div>
+				<div class="partialData" ng-click='financialToggle = !financialToggle'> DANE FINANSOWE</div>
+				<div ng-show='financialToggle'>
+					<p>Uposażenie:<span>{{particularDeputy['poslowie.wartosc_uposazenia_pln'] | currency: 'zł '}}</span></p>
+					<p>Uposażenie pracowników biura:<span>{{particularDeputy['poslowie.wartosc_biuro_wynagrodzenia_pracownikow']  | currency: 'zł '}}</span></p>
+					<p>Koszty przejazdów:<span>{{particularDeputy['poslowie.wartosc_biuro_przejazdy']  | currency: 'zł '}}</span></p>
+					<p>Koszty telekomunikacji:<span>{{particularDeputy['poslowie.wartosc_biuro_telekomunikacja']  | currency: 'zł '}}</span></p>
+					<p>Koszty wynajmu biura:<span>{{particularDeputy['poslowie.wartosc_biuro_biuro']  | currency: 'zł '}}</span></p>
+					<p>Koszty materiałów biurowych:<span>{{particularDeputy['poslowie.wartosc_biuro_materialy_biurowe']  | currency: 'zł '}}</span></p>
+					<p>Wartość środków stałych - biuro:<span>{{particularDeputy['poslowie.wartosc_biuro_srodki_trwale']  | currency: 'zł '}}</span></p>
+					<p>Wartość zleceń - biuro:<span>{{particularDeputy['poslowie.wartosc_biuro_zlecenia']  | currency: 'zł '}}</span></p>
+					<p>Wartość podróży pracowników biura:<span>{{particularDeputy['poslowie.wartosc_biuro_podroze_pracownikow']  | currency: 'zł '}}</span></p>
+					<p>Liczba przelotów:<span>{{particularDeputy['poslowie.liczba_przelotow']}}</span></p>
+					<p>Liczba przejazdów:<span>{{particularDeputy['poslowie.liczba_przejazdow']}}</span></p>
+				</div>
+				<div class="partialData" ng-click='politicalToggle = !politicalToggle'> DANE POLITYCZNE</div>
+				<div ng-show='politicalToggle'>
+					<p>Okręg wyborczy:<span>{{particularDeputy['poslowie.okreg_wyborczy_numer']}}</span></p>
+					<p>Numer legitymacji:<span>{{particularDeputy['poslowie.numer_legitymacji']}}</span></p>
+					<p>Liczba projektów uchwał:<span>{{particularDeputy['poslowie.liczba_projektow_uchwal']}}</span></p>
+					<p>Liczba projektów ustaw:<span>{{particularDeputy['poslowie.liczba_projektow_ustaw']}}</span></p>
+					<p>Liczba wniosków:<span>{{particularDeputy['poslowie.liczba_wnioskow']}}</span></p>
+					<p>Liczba ustaw komisji etyki:<span>{{particularDeputy['poslowie.liczba_uchwal_komisji_etyki']}}</span></p>
+					<p>Liczba interpelacji:<span>{{particularDeputy['poslowie.liczba_interpelacji']}}</span></p>
+					<p>Liczba głosowań:<span>{{particularDeputy['poslowie.liczba_glosow']}}</span></p>
+					<p>Liczba głosowań opuszczonych:<span>{{particularDeputy['poslowie.liczba_glosowan_opuszczonych']}}</span></p>
+					<p>Liczba głosowań zbuntowanych:<span>{{particularDeputy['poslowie.liczba_glosowan_zbuntowanych']}}</span></p>
+					<p>Data wygaśnięcia mandatu:<span>{{particularDeputy['poslowie.data_wygasniecia_mandatu']}}</span></p>
+				</div>
 			</div>
 		</main>
 	</section>

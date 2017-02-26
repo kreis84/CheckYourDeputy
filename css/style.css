@@ -113,3 +113,30 @@ main > p > span
 	margin: 10px;	
 	clear: both;
 }
+
+.particularDeputy h3>span
+{
+	float: right;
+}
+
+.particularDeputy p
+{
+	margin: 10px;
+	border-bottom: 1px dotted #a48a9f;
+}
+
+.particularDeputy p>span
+{
+	float: right;
+}
+
+.partialData
+{
+	margin-top: 10px;
+	cursor: pointer;
+	width: 100%;
+	box-sizing: border-box;
+	background-color: #65435f;
+	padding: 5px;
+	text-align: center;
+}

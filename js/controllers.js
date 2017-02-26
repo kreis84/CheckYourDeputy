@@ -9,6 +9,9 @@ angular.module('cyd')
 	$scope.orderByVar = 'name';
 	$scope.showDeputyList = true;
 	$scope.showParticularDeputy = false;
+	$scope.personalToggle = false;
+	$scope.financialToggle = false;
+	$scope.politicalToggle = false;
 
 	getDeputyList
 	.then(function(response)
@@ -18,12 +21,10 @@ angular.module('cyd')
 
 	$scope.selectDeputy = function(id)
 	{
-		console.log('selectDeputy: '+id);
 		particularDeputy.get(id)
 		.then(function(response)
 		{
 			$scope.particularDeputy = response.data.data;
-			console.log(response);
 			$scope.showDeputyList = false;
 			$scope.showParticularDeputy = true;
 		}, function(error)

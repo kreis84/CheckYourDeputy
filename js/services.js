@@ -43,8 +43,7 @@ angular.module('cyd')
 	return	{
 		get: function(id)
 		{	
-			console.log('particular Deputy: '+id);
-			return $http.get('https://api-v3.mojepanstwo.pl/dane/poslowie/'+id+'.json');
+			return $http.get('https://api-v3.mojepanstwo.pl/dane/poslowie/'+id+'.json?layers[]=krs&layers[]=wydatki&layers[]=biura&layers[]=wyjazdy');
 		}
 	};
 });
