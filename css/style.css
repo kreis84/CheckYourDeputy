@@ -2,5 +2,114 @@
 	margin:0 ;
 	padding: 0;
 	font-family: arial;
+	color: #A48A9F;
 }
 
+.borderAround
+{
+	border: 1px dotted #A48A9F;
+}
+
+input[type=text]
+{
+	border: 0;
+	width: 100%;
+	background-color: #A48A9F;
+	color: #431A3B;
+}
+
+body
+{
+	background-color: #431A3B;
+}
+
+h1
+{
+	background-color: #68285b;
+	text-align: center;
+	line-height: 60px;
+	
+}
+
+section
+{
+	width: 960px;
+	margin: auto;
+	display: flex;
+}
+
+nav
+{
+	width: 25%;
+	box-sizing: border-box;
+	/*float: left;*/
+	background-color:  #3e283a;
+	display: flex;
+	flex-direction: column;
+}
+
+nav form
+{
+	display: flex;
+	flex-direction: column;
+	box-sizing: border-box;
+	margin: 10px;
+}
+
+nav label
+{
+	margin: 10px; /* 10px 10px 10px;*/
+}
+
+main
+{
+	width: 75%;
+	box-sizing: border-box;
+/*	float: left;*/
+	background-color: #4A2E45;
+}
+
+main > p
+{
+	padding: 5px 20px 5px 20px;
+	border-bottom: 1px dotted #A48A9F;
+	cursor: pointer;
+}
+
+main > p:hover
+{
+	font-weight: bold;
+}
+
+main > p > span
+{
+	float: right;
+}
+
+.back
+{
+	cursor: pointer;
+	line-height: 32px;
+	float: left;
+	margin-top: 10px;
+	margin: 10px 10px 20px 20px;
+}
+.arrow
+{
+	width: 30px;
+	height: 30px;
+	background: url(../img/leftArrow.png) no-repeat;
+	float: left;
+	margin-right: 5px;
+}
+
+.back:hover
+{
+	font-weight: bold;
+}
+
+.particularDeputy
+{
+	margin: 10px;	
+	clear: both;
+}

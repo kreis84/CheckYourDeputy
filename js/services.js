@@ -6,7 +6,6 @@ angular.module('cyd')
 	var chunkLength = 0;
 	var promise = '';
 
-
 	promise = $q(function(resolve, reject)
 	{
 		$http.get('https://api-v3.mojepanstwo.pl/dane/poslowie.json?conditions[poslowie.kadencja]=8')
@@ -21,7 +20,7 @@ angular.module('cyd')
 				{
 					for(var item of response.data.Dataobject)
 						{
-							list.push({name: item.data['ludzie.nazwa'], id: parseInt(item.data['ludzie.id'])});
+							list.push({name: item.data['ludzie.nazwa'], id: parseInt(item.id), group: item.data['sejm_kluby.nazwa']});
 						};
 					if(list.length >= chunkLength*(timesToLoad-1))
 					{
@@ -34,9 +33,19 @@ angular.module('cyd')
 					reject('error in getDeputyListFactory');
 				});
 			};
-		});
+		})
 	});
-
 	return promise;
+})
+
+.factory('particularDeputy', function($http)
+{
+	return	{
+		get: function(id)
+		{	
+			console.log('particular Deputy: '+id);
+			return $http.get('https://api-v3.mojepanstwo.pl/dane/poslowie/'+id+'.json');
+		}
+	};
 });
 

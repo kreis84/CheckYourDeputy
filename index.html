@@ -1,16 +1,38 @@
 <!DOCTYPE html>
 <html ng-app='cyd'>
 <head>
+	<title>Sprawdź Swego Posła</title>
 	<meta charset ="utf-8">
 	<link rel="stylesheet" href="css/style.css">
 	<meta name="viewport" content="width=device-width">
 </head>
 <body>
-	<div ng-controller='presentationController'>
-		<p ng-repeat="item in deputyList | orderBy: 'id' ">
-			{{item.id}} --- {{item.name}}
-		</p>
-	</div>
+	<h1 class='borderAround'>Sprawdź Swego Posła</h1>
+	<section>
+		<nav ng-controller='inputController' class='borderAround'>
+			<form class='borderAround'>
+				<label><input type="radio" ng-model='filter' value='name' checked> Sortuj po nazwisku</label>
+				<label><input type="radio" ng-model='filter' value='group'> Sortuj po partii</label>
+			</form>
+			<label>Wyszukaj po nazwisku
+			<input type="text" ng-model='searchByName'>
+			</label>
+			<label>Wyszukaj po partii
+			<input type="text" ng-model='searchByGroup'>
+			</label>
+		</nav>
+		<main ng-controller='presentationController' class="borderAround">
+			<p ng-if='showDeputyList' ng-repeat="item in deputyList | orderBy: orderByVar | filter: searchByName | filter: searchByGroup " ng-click='selectDeputy(this.item.id)'>
+				{{item.name}} 
+				<span>{{item.group}}</span>
+			</p>
+			<div class="back" ng-click='back()' ng-if='showParticularDeputy'><div class="arrow"></div>WRÓĆ</div>
+			<div class='particularDeputy' ng-if='showParticularDeputy' class="particularDeputy">
+				<h3>{{particularDeputy['poslowie.nazwa']}}</h3>
+			</div>
+		</main>
+	</section>
+
 
 </body>
 <script type="text/javascript" src="js/angular.min.js"> </script>
