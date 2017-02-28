@@ -24,7 +24,7 @@ angular.module('cyd')
 						};
 					if(list.length >= chunkLength*(timesToLoad-1))
 					{
-						list=list.filter((item)=> { if( !isNaN(item.id)) return item; });	
+						list=list.filter((item)=> { if( !isNaN(item.id) && (item.name !=='')) return item; });	
 						resolve(list);	
 					}
 				},
