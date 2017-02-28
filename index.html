@@ -22,6 +22,7 @@
 			</label>
 		</nav>
 		<main ng-controller='presentationController' class="borderAround">
+			<div class="loading" ng-if='loading'></div>
 			<p ng-if='showDeputyList' ng-repeat="item in deputyList | orderBy: orderByVar | filter: searchByName | filter: searchByGroup " ng-click='selectDeputy(this.item.id)'>
 				{{item.name}} 
 				<span>{{item.group}}</span>
@@ -30,14 +31,14 @@
 			<div class='particularDeputy' ng-if='showParticularDeputy' class="particularDeputy">
 				<h3>{{particularDeputy['poslowie.nazwa']}} <span>{{particularDeputy['sejm_kluby.nazwa']}}</span></h3>
 				<div class="partialData" ng-click='personalToggle = !personalToggle'> DANE PERSONALNE</div>
-				<div ng-show='personalToggle'>
+				<div class="partialDataWrapper" ng-class="{'maxHeight': personalToggle}">
 					<p>Data urodzenia:<span>{{particularDeputy['poslowie.data_urodzenia']}}</span></p>
 					<p>Miejsce urodzenia:<span>{{particularDeputy['poslowie.miejsce_urodzenia']}}</span></p>
 					<p>Miejsce zamieszkania:<span>{{particularDeputy['poslowie.miejsce_zamieszkania']}}</span></p>
 					<p>Zawód:<span>{{particularDeputy['poslowie.zawod']}}</span></p>
 				</div>
 				<div class="partialData" ng-click='financialToggle = !financialToggle'> DANE FINANSOWE</div>
-				<div ng-show='financialToggle'>
+				<div class="partialDataWrapper" ng-class="{'maxHeight': financialToggle}">
 					<p>Uposażenie:<span>{{particularDeputy['poslowie.wartosc_uposazenia_pln'] | currency: 'zł '}}</span></p>
 					<p>Uposażenie pracowników biura:<span>{{particularDeputy['poslowie.wartosc_biuro_wynagrodzenia_pracownikow']  | currency: 'zł '}}</span></p>
 					<p>Koszty przejazdów:<span>{{particularDeputy['poslowie.wartosc_biuro_przejazdy']  | currency: 'zł '}}</span></p>
@@ -51,7 +52,7 @@
 					<p>Liczba przejazdów:<span>{{particularDeputy['poslowie.liczba_przejazdow']}}</span></p>
 				</div>
 				<div class="partialData" ng-click='politicalToggle = !politicalToggle'> DANE POLITYCZNE</div>
-				<div ng-show='politicalToggle'>
+				<div class="partialDataWrapper" ng-class="{'maxHeight': politicalToggle}">
 					<p>Okręg wyborczy:<span>{{particularDeputy['poslowie.okreg_wyborczy_numer']}}</span></p>
 					<p>Numer legitymacji:<span>{{particularDeputy['poslowie.numer_legitymacji']}}</span></p>
 					<p>Liczba projektów uchwał:<span>{{particularDeputy['poslowie.liczba_projektow_uchwal']}}</span></p>
@@ -71,6 +72,7 @@
 
 </body>
 <script type="text/javascript" src="js/angular.min.js"> </script>
+<script type="text/javascript" src="js/angular-animate.min.js"> </script>
 <script type="text/javascript" src="js/app.js"> </script>
 <script type="text/javascript" src="js/route.js"> </script>
 <script type="text/javascript" src="js/services.js"> </script>

@@ -130,6 +130,22 @@ main > p > span
 	float: right;
 }
 
+
+.loading
+{
+	background: url('../img/load.png');
+	animation: rotate 0.1s linear infinite;
+	width: 50px;
+	height: 50px;
+	margin: auto;
+}
+
+@keyframes rotate
+{
+	0% {}
+	100% {transform: rotate(30deg);}
+}
+
 .partialData
 {
 	margin-top: 10px;
@@ -139,4 +155,16 @@ main > p > span
 	background-color: #65435f;
 	padding: 5px;
 	text-align: center;
+}
+
+.partialDataWrapper
+{
+	transition: all 0.5s linear;
+	max-height: 0;
+	overflow: hidden;
+}
+
+.maxHeight
+{
+	max-height: 350px;
 }

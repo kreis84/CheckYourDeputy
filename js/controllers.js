@@ -2,6 +2,7 @@ angular.module('cyd')
 
 .controller('presentationController', function($scope, $rootScope, getDeputyList, particularDeputy)
 {
+	$scope.loading = true;
 	$scope.deputyList = [];
 	$scope.particularDeputy = {};
 	$scope.searchByName = '';
@@ -16,6 +17,7 @@ angular.module('cyd')
 	getDeputyList
 	.then(function(response)
 	{
+		$scope.loading = false;
 		$scope.deputyList = response;
 	});
 

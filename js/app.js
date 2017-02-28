@@ -1,1 +1,1 @@
-angular.module('cyd', []); 
+angular.module('cyd', ['ngAnimate']); 
